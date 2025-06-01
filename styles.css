@@ -64,10 +64,7 @@ body {
     align-items: center;
 }
 
-.logo-img {
-    height: 90px;
-    width: auto;
-}
+
 
 .nav-menu {
     display: flex;
@@ -677,7 +674,7 @@ body {
 }
 
 .footer-logo {
-    height: 40px;
+    height: 100px;
     width: auto;
     margin-bottom: 1rem;
     filter: brightness(0) invert(1);
@@ -721,6 +718,10 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+    .logo-img {
+        height: 90px;
+        width: auto;
+    }
     .map-container {
         grid-template-columns: 300px 1fr;
     }
