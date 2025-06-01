@@ -2,80 +2,80 @@
 const stations = [
     {
         id: 1,
-        name: "Raspaoil Zona 10",
-        address: "Avenida Las Américas, Zona 10, Ciudad de Guatemala",
+        name: "Raspaoil La Hoya",
+        address: "Polígono Industrial La Hoya, Parcela E-6, La Hoya, Murcia",
         service: "24H servicio",
-        lat: 14.5995,
-        lng: -90.5087,
-        city: "Guatemala",
+        lat: 37.9125,
+        lng: -1.2488,
+        city: "Murcia",
         services: ["24H", "Tienda", "Lavado", "ATM"],
-        phone: "+502 2345-6789"
+        phone: "+34"
     },
     {
         id: 2,
-        name: "Raspaoil Antigua",
-        address: "Carretera a Antigua Guatemala, Km 45",
+        name: "Raspaoil Águilas",
+        address: "Km 0, Carr. de Lorca, 9, 30880 Águilas, Murcia",
         service: "24H servicio",
-        lat: 14.5586,
-        lng: -90.7344,
-        city: "Antigua",
+        lat: 37.4135,
+        lng: -1.5930,
+        city: "Murcia",
         services: ["24H", "Restaurante", "WiFi", "Mecánica"],
-        phone: "+502 2345-6790"
+        phone: "+34"
     },
     {
         id: 3,
-        name: "Raspaoil Quetzaltenango",
-        address: "Boulevard Los Altos, Quetzaltenango",
-        service: "24H servicio",
-        lat: 14.8333,
-        lng: -91.5167,
-        city: "Quetzaltenango",
+        name: "Raspaoil Mazarrón",
+        address: "Av. de las Moreras, S/n, 30870 Mazarrón, Murcia",
+        service: "Servicio diurno",
+        lat: 37.6155,
+        lng: -1.3131,
+        city: "Murcia",
         services: ["24H", "Mecánica", "Llantas", "Tienda"],
-        phone: "+502 2345-6791"
+        phone: "+34"
     },
     {
         id: 4,
-        name: "Raspaoil Escuintla",
-        address: "Carretera CA-2, Escuintla",
-        service: "Servicio diurno",
-        lat: 14.3056,
-        lng: -90.7850,
-        city: "Escuintla",
+        name: "Raspaoil Cartagena",
+        address: "Pasaje los Blases, 35, 30205 Cartagena, Murcia",
+        service: "24H Servicio",
+        lat: 37.6155,
+        lng: -0.9812,
+        city: "Murcia",
         services: ["Tienda", "Lavado", "Cafetería"],
-        phone: "+502 2345-6792"
+        phone: "+34"
     },
     {
         id: 5,
-        name: "Raspaoil Chimaltenango",
-        address: "Ruta Nacional 1, Chimaltenango",
+        name: "Raspaoil Yecla",
+        address: "Av. de la Paz, 225A, 30510 Yecla, Murcia",
         service: "24H servicio",
-        lat: 14.6569,
-        lng: -90.8158,
-        city: "Chimaltenango",
+        lat: 38.6172,
+        lng: -1.1166,
+        city: "Murcia",
         services: ["24H", "Mecánica", "Tienda", "WiFi"],
-        phone: "+502 2345-6793"
+        phone: "+34"
     },
     {
         id: 6,
-        name: "Raspaoil Mixco",
-        address: "Calzada San Juan, Mixco",
+        name: "Raspaoil Albox",
+        address: "Carretera Lorca- Baza, Paraje Los Chorlitos, Parc. 426, Pol. 41 Km. 426, 04800 Albox, Almería",
         service: "24H servicio",
-        lat: 14.6308,
-        lng: -90.6067,
-        city: "Mixco",
+        lat: 37.3958,
+        lng: -2.1385,
+        city: "Almería",
         services: ["24H", "Lavado", "ATM", "Tienda"],
-        phone: "+502 2345-6794"
+        phone: "+34"
     },
     {
         id: 7,
-        name: "Raspaoil Villa Nueva",
-        address: "Carretera a Villa Nueva, Km 15",
-        service: "Servicio diurno",
-        lat: 14.5253,
-        lng: -90.5881,
-        city: "Villa Nueva",
-        services: ["Tienda", "Mecánica", "Cafetería"],
-        phone: "+502 2345-6795"
+        name: "Raspaoil Aspe",
+        address: "Ctra. Novelda, 2, 03680 Aspe, Alicante",
+        service: "24H servicio",
+        lat: 38.3486,
+        lng: -0.8618,
+        city: "Alicante",
+        services: ["24H", "Tienda", "Mecánica", "Cafetería"],
+        phone: "+34"
     }
 ];
 
@@ -137,9 +137,9 @@ function toggleMobileMenu() {
 // Inicialización del mapa
 function initializeMap() {
     // Coordenadas centrales de Guatemala
-    const guatemalaCenter = [14.6349, -90.5069];
+    const mapCenter = [37.9922, -1.1307];
     
-    map = L.map('map').setView(guatemalaCenter, 9);
+    map = L.map('map').setView(mapCenter, 8);
 
     // Añadir capa de teselas
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
