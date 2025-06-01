@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raspaoil Guatemala - Estaciones de Servicio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/400836883_122096468984121422_2980779061526172962_n-removebg-preview-sPEYCsoiCoDtrSOpahO5Vc0KprnfcC.png" alt="Raspaoil Logo" class="logo-img">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#inicio" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#estaciones" class="nav-link">Estaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#servicios" class="nav-link">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contacto" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Bienvenido a <span class="highlight">Raspaoil Guatemala</span></h1>
+                    <p class="hero-subtitle">Tu estación de servicio de confianza en toda Guatemala</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('estaciones')">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Encontrar Estaciones
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('servicios')">
+                            <i class="fas fa-info-circle"></i>
+                            Nuestros Servicios
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-card">
+                        <i class="fas fa-gas-pump"></i>
+                        <h3>Combustible de Calidad</h3>
+                        <p>Garantizado</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-pattern"></div>
+        </section>
+
+        <!-- Color Palette Section -->
+        <section class="color-palette">
+            <div class="container">
+                <h2 class="section-title">Paleta de Colores Guatemala</h2>
+                <div class="palette-grid">
+                    <div class="color-card" data-color="#D4AF37">
+                        <div class="color-preview gold"></div>
+                        <div class="color-info">
+                            <h3>Oro Guatemalteco</h3>
+                            <p>#D4AF37</p>
+                            <span class="color-usage">Acentos y destacados</span>
+                        </div>
+                    </div>
+                    <div class="color-card" data-color="#1B4332">
+                        <div class="color-preview forest"></div>
+                        <div class="color-info">
+                            <h3>Verde Bosque</h3>
+                            <p>#1B4332</p>
+                            <span class="color-usage">Textos principales</span>
+                        </div>
+                    </div>
+                    <div class="color-card" data-color="#2D6A4F">
+                        <div class="color-preview emerald"></div>
+                        <div class="color-info">
+                            <h3>Esmeralda</h3>
+                            <p>#2D6A4F</p>
+                            <span class="color-usage">Elementos secundarios</span>
+                        </div>
+                    </div>
+                    <div class="color-card" data-color="#40916C">
+                        <div class="color-preview jade"></div>
+                        <div class="color-info">
+                            <h3>Jade Maya</h3>
+                            <p>#40916C</p>
+                            <span class="color-usage">Botones y enlaces</span>
+                        </div>
+                    </div>
+                    <div class="color-card" data-color="#8B4513">
+                        <div class="color-preview earth"></div>
+                        <div class="color-info">
+                            <h3>Tierra Volcánica</h3>
+                            <p>#8B4513</p>
+                            <span class="color-usage">Fondos cálidos</span>
+                        </div>
+                    </div>
+                    <div class="color-card" data-color="#FF6B35">
+                        <div class="color-preview sunset"></div>
+                        <div class="color-info">
+                            <h3>Atardecer Chapín</h3>
+                            <p>#FF6B35</p>
+                            <span class="color-usage">Alertas y notificaciones</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estaciones Section -->
+        <section id="estaciones" class="stations">
+            <div class="container">
+                <h2 class="section-title">Nuestras Estaciones en Guatemala</h2>
+                <div class="stations-grid">
+                    <div class="station-card">
+                        <div class="station-header">
+                            <i class="fas fa-gas-pump"></i>
+                            <h3>Raspaoil Zona 10</h3>
+                        </div>
+                        <p class="station-address">Avenida Las Américas, Zona 10, Ciudad de Guatemala</p>
+                        <div class="station-features">
+                            <span class="feature-tag">24 Horas</span>
+                            <span class="feature-tag">Tienda</span>
+                            <span class="feature-tag">Lavado</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openDirections('guatemala-zona10')">
+                            <i class="fas fa-directions"></i>
+                            Cómo llegar
+                        </button>
+                    </div>
+
+                    <div class="station-card">
+                        <div class="station-header">
+                            <i class="fas fa-gas-pump"></i>
+                            <h3>Raspaoil Antigua</h3>
+                        </div>
+                        <p class="station-address">Carretera a Antigua Guatemala, Km 45</p>
+                        <div class="station-features">
+                            <span class="feature-tag">Restaurante</span>
+                            <span class="feature-tag">WiFi</span>
+                            <span class="feature-tag">ATM</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openDirections('antigua')">
+                            <i class="fas fa-directions"></i>
+                            Cómo llegar
+                        </button>
+                    </div>
+
+                    <div class="station-card">
+                        <div class="station-header">
+                            <i class="fas fa-gas-pump"></i>
+                            <h3>Raspaoil Quetzaltenango</h3>
+                        </div>
+                        <p class="station-address">Boulevard Los Altos, Quetzaltenango</p>
+                        <div class="station-features">
+                            <span class="feature-tag">24 Horas</span>
+                            <span class="feature-tag">Mecánica</span>
+                            <span class="feature-tag">Llantas</span>
+                        </div>
+                        <button class="btn btn-outline" onclick="openDirections('quetzaltenango')">
+                            <i class="fas fa-directions"></i>
+                            Cómo llegar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios Section -->
+        <section id="servicios" class="services">
+            <div class="container">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-gas-pump"></i>
+                        </div>
+                        <h3>Combustibles Premium</h3>
+                        <p>Gasolina y diésel de la más alta calidad para tu vehículo</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-car-wash"></i>
+                        </div>
+                        <h3>Lavado de Autos</h3>
+                        <p>Servicio completo de lavado y encerado profesional</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Mecánica Rápida</h3>
+                        <p>Mantenimiento y reparaciones menores para tu tranquilidad</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Tienda de Conveniencia</h3>
+                        <p>Todo lo que necesitas para tu viaje en un solo lugar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/400836883_122096468984121422_2980779061526172962_n-removebg-preview-sPEYCsoiCoDtrSOpahO5Vc0KprnfcC.png" alt="Raspaoil Logo" class="footer-logo">
+                    <p>Tu estación de servicio de confianza en Guatemala</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#estaciones">Estaciones</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-phone"></i> +502 2345-6789</p>
+                    <p><i class="fas fa-envelope"></i> info@raspaoil.gt</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Raspaoil Guatemala. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

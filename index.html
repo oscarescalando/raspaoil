@@ -3,130 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAPA INTERACTIVO RASPAOIL</title>
+    <title>Raspaoil Guatemala - Estaciones de Servicio</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/code.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>MAPA INTERACTIVO RASPAOIL</h1>
-    <div id="map"></div>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/400836883_122096468984121422_2980779061526172962_n-removebg-preview-sPEYCsoiCoDtrSOpahO5Vc0KprnfcC.png" alt="Raspaoil Logo" class="logo-img">
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#inicio" class="nav-link">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#mapa" class="nav-link">Mapa Interactivo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#estaciones" class="nav-link">Estaciones</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#servicios" class="nav-link">Servicios</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Encuentra tu <span class="highlight">Estación Raspaoil</span> más cercana</h1>
+                    <p class="hero-subtitle">Mapa interactivo con todas nuestras ubicaciones en Guatemala</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('mapa')">
+                            <i class="fas fa-map-marked-alt"></i>
+                            Ver Mapa Interactivo
+                        </button>
+                        <button class="btn btn-secondary" onclick="getUserLocation()">
+                            <i class="fas fa-location-arrow"></i>
+                            Mi Ubicación
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="7">0</div>
+                        <div class="stat-label">Estaciones</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="5">0</div>
+                        <div class="stat-label">Servicio 24H</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-label">Departamentos</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-pattern"></div>
+        </section>
+
+        <!-- Mapa Interactivo Section -->
+        <section id="mapa" class="map-section">
+            <div class="container">
+                <div class="map-header">
+                    <h2 class="section-title">Mapa Interactivo de Estaciones</h2>
+                    <p class="section-subtitle">Haz clic en cualquier marcador para ver información detallada y obtener direcciones</p>
+                </div>
+                
+                <div class="map-container">
+                    <div class="map-sidebar">
+                        <div class="sidebar-header">
+                            <h3>Estaciones Disponibles</h3>
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="stationSearch" placeholder="Buscar estación...">
+                            </div>
+                        </div>
+                        
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter="all">
+                                <i class="fas fa-list"></i>
+                                Todas
+                            </button>
+                            <button class="filter-tab" data-filter="24h">
+                                <i class="fas fa-clock"></i>
+                                24 Horas
+                            </button>
+                            <button class="filter-tab" data-filter="services">
+                                <i class="fas fa-tools"></i>
+                                Servicios
+                            </button>
+                        </div>
+                        
+                        <div class="stations-list" id="stationsList">
+                            <!-- Las estaciones se cargarán dinámicamente -->
+                        </div>
+                    </div>
+                    
+                    <div class="map-wrapper">
+                        <div id="map" class="interactive-map"></div>
+                        <div class="map-controls">
+                            <button class="map-control-btn" onclick="centerMap()" title="Centrar mapa">
+                                <i class="fas fa-crosshairs"></i>
+                            </button>
+                            <button class="map-control-btn" onclick="getUserLocation()" title="Mi ubicación">
+                                <i class="fas fa-location-arrow"></i>
+                            </button>
+                            <button class="map-control-btn" onclick="toggleFullscreen()" title="Pantalla completa">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estaciones List Section -->
+        <section id="estaciones" class="stations">
+            <div class="container">
+                <h2 class="section-title">Nuestras Estaciones en Guatemala</h2>
+                <div class="stations-grid" id="stationsGrid">
+                    <!-- Las estaciones se cargarán dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios Section -->
+        <section id="servicios" class="services">
+            <div class="container">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-gas-pump"></i>
+                        </div>
+                        <h3>Combustibles Premium</h3>
+                        <p>Gasolina y diésel de la más alta calidad para tu vehículo</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-car-wash"></i>
+                        </div>
+                        <h3>Lavado de Autos</h3>
+                        <p>Servicio completo de lavado y encerado profesional</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Mecánica Rápida</h3>
+                        <p>Mantenimiento y reparaciones menores para tu tranquilidad</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Tienda de Conveniencia</h3>
+                        <p>Todo lo que necesitas para tu viaje en un solo lugar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/400836883_122096468984121422_2980779061526172962_n-removebg-preview-sPEYCsoiCoDtrSOpahO5Vc0KprnfcC.png" alt="Raspaoil Logo" class="footer-logo">
+                    <p>Tu estación de servicio de confianza en Guatemala</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#mapa">Mapa</a></li>
+                        <li><a href="#estaciones">Estaciones</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-phone"></i> +502 2345-6789</p>
+                    <p><i class="fas fa-envelope"></i> info@raspaoil.gt</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Raspaoil Guatemala. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
-    <!-- Custom JavaScript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-    // Coordenadas aproximadas (¡DEBES VERIFICAR Y AJUSTARLAS!)
-    // Puedes usar Google Maps: busca la dirección, haz clic derecho -> "¿Qué hay aquí?" para obtener lat, lng.
-    const stations = [
-        {
-            name: "Raspaoil La Hoya",
-            address: "POLÍGONO INDUSTRIAL LA HOYA, PARCELA E-6, LA HOYA (MURCIA)",
-            service: "24H servicio",
-            lat: 37.9125, // Ejemplo, ¡reemplazar!
-            lng: -1.2488  // Ejemplo, ¡reemplazar!
-        },
-        {
-            name: "Raspaoil Águilas",
-            address: "Km 0, Carr. de Lorca, 9, 30880 Águilas, Murcia",
-            service: "24H servicio",
-            lat: 37.4135, // Ejemplo, ¡reemplazar!
-            lng: -1.5930  // Ejemplo, ¡reemplazar!
-        },
-        {
-            name: "Raspaoil Mazarrón",
-            address: "Av. de las Moreras, S/n, 30870 Mazarrón, Murcia",
-            service: null, // No se especifica 24H
-            lat: 37.5920, // Ejemplo, ¡reemplazar!
-            lng: -1.3131  // Ejemplo, ¡reemplazar!
-        },
-        {
-            name: "Raspaoil Cartagena",
-            address: "Pasaje los Blases, 35, 30205 Cartagena, Murcia",
-            service: "24H Servicio",
-            lat: 37.6155, // Ejemplo, ¡reemplazar!
-            lng: -0.9812  // Ejemplo, ¡reemplazar!
-        },
-        {
-            name: "Raspaoil Yecla",
-            address: "Av. de la Paz, 225A, 30510 Yecla, Murcia",
-            service: "24H Servicio",
-            lat: 38.6172, // Ejemplo, ¡reemplazar!
-            lng: -1.1166  // Ejemplo, ¡reemplazar!
-        },
-        {
-            name: "Raspaoil Albox",
-            address: "Carretera Lorca- Baza, Paraje Los Chorlitos, Parc. 426, Pol. 41 Km. 426, 04800 Albox, Almería",
-            service: "24H Servicio",
-            lat: 37.3958, // Ejemplo, ¡reemplazar!
-            lng: -2.1385  // Ejemplo, ¡reemplazar!
-        },
-        {
-            name: "Raspaoil Aspe",
-            address: "Ctra. Novelda, 2, 03680 Aspe, Alicante",
-            service: "24H Servicio",
-            lat: 38.3486, // Ejemplo, ¡reemplazar!
-            lng: -0.8618  // Ejemplo, ¡reemplazar!
-        }
-    ];
-
-    // Coordenadas centrales aproximadas para el mapa (p.ej., centro de Murcia)
-    const mapCenter = [37.9922, -1.1307]; // Centro de la Región de Murcia
-    const map = L.map('map').setView(mapCenter, 8); // Nivel de zoom 8
-
-    // Añadir capa de teselas (tiles) de OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Icono personalizado para las gasolineras
-    // Asegúrate de tener un archivo 'gas_station_icon.png' en la misma carpeta
-    // o cambia la ruta a una URL si lo tienes online.
-    const gasIcon = L.icon({
-        iconUrl: 'gas_station_icon.png', // ¡CAMBIA ESTO SI ES NECESARIO!
-        iconSize: [32, 37], // Tamaño del icono [ancho, alto]
-        iconAnchor: [16, 37], // Punto del icono que corresponderá a la ubicación del marcador
-        popupAnchor: [0, -30] // Punto desde donde se abrirá el popup, relativo al iconAnchor
-    });
-    
-    // Alternativa si no tienes un icono local, usa un marcador por defecto de Leaflet
-    // const gasIcon = new L.Icon.Default();
-
-
-    // Añadir marcadores para cada estación
-    stations.forEach(station => {
-        if (station.lat && station.lng) { // Solo añadir si tenemos coordenadas
-            const marker = L.marker([station.lat, station.lng], { icon: gasIcon }).addTo(map);
-
-            // Contenido del Popup
-            let popupContent = `<h3>${station.name}</h3><p>${station.address}</p>`;
-            if (station.service) {
-                popupContent += `<p><strong class="service-24h">${station.service}</strong></p>`;
-            }
-            
-            // Enlace a Google Maps para "Cómo llegar"
-            const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${station.lat},${station.lng}`;
-            popupContent += `<p><a href="${googleMapsUrl}" target="_blank">Cómo llegar</a></p>`;
-
-            marker.bindPopup(popupContent);
-        } else {
-            console.warn(`Coordenadas no disponibles para: ${station.name}`);
-        }
-    });
-
-    // Opcional: Ajustar el zoom para que todos los marcadores sean visibles
-    const group = new L.featureGroup(stations.filter(s => s.lat && s.lng).map(s => L.marker([s.lat, s.lng])));
-    if (group.getLayers().length > 0) {
-        map.fitBounds(group.getBounds().pad(0.3)); // pad(0.3) añade un poco de margen
-    }
-
-});
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
