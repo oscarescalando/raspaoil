@@ -727,6 +727,9 @@ body {
 }
 
 @media (max-width: 768px) {
+    .logo-img {
+        height: 80px;
+    }
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -801,6 +804,9 @@ body {
 }
 
 @media (max-width: 480px) {
+    .logo-img {
+        height: 70px;
+    }
     .hero-title {
         font-size: 2rem;
     }
