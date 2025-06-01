@@ -828,6 +828,13 @@ body {
     }
 
     .map-wrapper {
-        height: 300px;
+        height: 550px;
+    }
+
+     .map-sidebar {
+        order: 2;
+        border-right: none;
+        border-top: 1px solid var(--light-gray);
+        max-height: 600px;
     }
 }
