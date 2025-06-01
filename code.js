@@ -1,0 +1,106 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // Coordenadas aproximadas (¡DEBES VERIFICAR Y AJUSTARLAS!)
+    // Puedes usar Google Maps: busca la dirección, haz clic derecho -> "¿Qué hay aquí?" para obtener lat, lng.
+    const stations = [
+        {
+            name: "Raspaoil La Hoya",
+            address: "POLÍGONO INDUSTRIAL LA HOYA, PARCELA E-6, LA HOYA (MURCIA)",
+            service: "24H servicio",
+            lat: 37.9125, // Ejemplo, ¡reemplazar!
+            lng: -1.2488  // Ejemplo, ¡reemplazar!
+        },
+        {
+            name: "Raspaoil Águilas",
+            address: "Km 0, Carr. de Lorca, 9, 30880 Águilas, Murcia",
+            service: "24H servicio",
+            lat: 37.4135, // Ejemplo, ¡reemplazar!
+            lng: -1.5930  // Ejemplo, ¡reemplazar!
+        },
+        {
+            name: "Raspaoil Mazarrón",
+            address: "Av. de las Moreras, S/n, 30870 Mazarrón, Murcia",
+            service: null, // No se especifica 24H
+            lat: 37.5920, // Ejemplo, ¡reemplazar!
+            lng: -1.3131  // Ejemplo, ¡reemplazar!
+        },
+        {
+            name: "Raspaoil Cartagena",
+            address: "Pasaje los Blases, 35, 30205 Cartagena, Murcia",
+            service: "24H Servicio",
+            lat: 37.6155, // Ejemplo, ¡reemplazar!
+            lng: -0.9812  // Ejemplo, ¡reemplazar!
+        },
+        {
+            name: "Raspaoil Yecla",
+            address: "Av. de la Paz, 225A, 30510 Yecla, Murcia",
+            service: "24H Servicio",
+            lat: 38.6172, // Ejemplo, ¡reemplazar!
+            lng: -1.1166  // Ejemplo, ¡reemplazar!
+        },
+        {
+            name: "Raspaoil Albox",
+            address: "Carretera Lorca- Baza, Paraje Los Chorlitos, Parc. 426, Pol. 41 Km. 426, 04800 Albox, Almería",
+            service: "24H Servicio",
+            lat: 37.3958, // Ejemplo, ¡reemplazar!
+            lng: -2.1385  // Ejemplo, ¡reemplazar!
+        },
+        {
+            name: "Raspaoil Aspe",
+            address: "Ctra. Novelda, 2, 03680 Aspe, Alicante",
+            service: "24H Servicio",
+            lat: 38.3486, // Ejemplo, ¡reemplazar!
+            lng: -0.8618  // Ejemplo, ¡reemplazar!
+        }
+    ];
+
+    // Coordenadas centrales aproximadas para el mapa (p.ej., centro de Murcia)
+    const mapCenter = [37.9922, -1.1307]; // Centro de la Región de Murcia
+    const map = L.map('map').setView(mapCenter, 8); // Nivel de zoom 8
+
+    // Añadir capa de teselas (tiles) de OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Icono personalizado para las gasolineras
+    // Asegúrate de tener un archivo 'gas_station_icon.png' en la misma carpeta
+    // o cambia la ruta a una URL si lo tienes online.
+    const gasIcon = L.icon({
+        iconUrl: 'gas_station_icon.png', // ¡CAMBIA ESTO SI ES NECESARIO!
+        iconSize: [32, 37], // Tamaño del icono [ancho, alto]
+        iconAnchor: [16, 37], // Punto del icono que corresponderá a la ubicación del marcador
+        popupAnchor: [0, -30] // Punto desde donde se abrirá el popup, relativo al iconAnchor
+    });
+    
+    // Alternativa si no tienes un icono local, usa un marcador por defecto de Leaflet
+    // const gasIcon = new L.Icon.Default();
+
+
+    // Añadir marcadores para cada estación
+    stations.forEach(station => {
+        if (station.lat && station.lng) { // Solo añadir si tenemos coordenadas
+            const marker = L.marker([station.lat, station.lng], { icon: gasIcon }).addTo(map);
+
+            // Contenido del Popup
+            let popupContent = `<h3>${station.name}</h3><p>${station.address}</p>`;
+            if (station.service) {
+                popupContent += `<p><strong class="service-24h">${station.service}</strong></p>`;
+            }
+            
+            // Enlace a Google Maps para "Cómo llegar"
+            const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${station.lat},${station.lng}`;
+            popupContent += `<p><a href="${googleMapsUrl}" target="_blank">Cómo llegar</a></p>`;
+
+            marker.bindPopup(popupContent);
+        } else {
+            console.warn(`Coordenadas no disponibles para: ${station.name}`);
+        }
+    });
+
+    // Opcional: Ajustar el zoom para que todos los marcadores sean visibles
+    const group = new L.featureGroup(stations.filter(s => s.lat && s.lng).map(s => L.marker([s.lat, s.lng])));
+    if (group.getLayers().length > 0) {
+        map.fitBounds(group.getBounds().pad(0.3)); // pad(0.3) añade un poco de margen
+    }
+
+});

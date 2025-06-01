@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    padding: 20px 0;
+    background-color: #ecf0f1;
+    margin-top: 0;
+}
+
+#map {
+    height: 600px; /* Puedes ajustar la altura */
+    width: 90%;   /* Puedes ajustar el ancho */
+    max-width: 1200px; /* Limita el ancho máximo */
+    margin: 20px auto; /* Centra el mapa */
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Estilo para el contenido del popup */
+.leaflet-popup-content-wrapper {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.leaflet-popup-content {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.leaflet-popup-content h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: #007bff; /* Un color azul para el título */
+    font-size: 16px;
+}
+
+.leaflet-popup-content p {
+    margin: 5px 0;
+}
+
+.leaflet-popup-content strong.service-24h {
+    color: #28a745; /* Verde para el servicio 24H */
+    font-weight: bold;
+}
