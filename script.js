@@ -9,7 +9,7 @@ const stations = [
         lng: -1.2488,
         city: "Murcia",
         services: ["24H", "Tienda", "Lavado", "ATM"],
-        phone: "+34"
+        phone: "+34 968481751"
     },
     {
         id: 2,
@@ -24,25 +24,25 @@ const stations = [
     },
     {
         id: 3,
-        name: "Raspaoil Mazarrón",
+        name: "Raspaoil Wash Park Mazarrón",
         address: "Av. de las Moreras, S/n, 30870 Mazarrón, Murcia",
         service: "Servicio diurno",
-        lat: 37.6155,
-        lng: -1.3131,
+        lat: 37.591215,
+        lng: -1.316381,
         city: "Murcia",
-        services: ["24H", "Mecánica", "Llantas", "Tienda"],
-        phone: "+34"
+        services: ["Mecánica", "Llantas", "Tienda"],
+        phone: "+34 968481751"
     },
     {
         id: 4,
         name: "Raspaoil Cartagena",
         address: "Pasaje los Blases, 35, 30205 Cartagena, Murcia",
-        service: "24H Servicio",
-        lat: 37.6155,
-        lng: -0.9812,
+        service: "24H servicio",
+        lat: 37.614738,
+        lng: -1.006531,
         city: "Murcia",
-        services: ["Tienda", "Lavado", "Cafetería"],
-        phone: "+34"
+        services: ["24H", "Tienda", "Lavado", "Cafetería"],
+        phone: "+34 968481751"
     },
     {
         id: 5,
@@ -60,11 +60,11 @@ const stations = [
         name: "Raspaoil Albox",
         address: "Carretera Lorca- Baza, Paraje Los Chorlitos, Parc. 426, Pol. 41 Km. 426, 04800 Albox, Almería",
         service: "24H servicio",
-        lat: 37.3958,
-        lng: -2.1385,
+        lat: 37.369895,
+        lng: -2.121267,
         city: "Almería",
         services: ["24H", "Lavado", "ATM", "Tienda"],
-        phone: "+34"
+        phone: "+34 968481751"
     },
     {
         id: 7,
